@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "70469f61-0d19-4666-9d50-d937bc440634",
+		"name": "api_model_db",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19154441"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "predict",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/v2/predict?tv=230.1&radio=37.8&newspaper=69.2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"v2",
+						"predict"
+					],
+					"query": [
+						{
+							"key": "tv",
+							"value": "230.1"
+						},
+						{
+							"key": "radio",
+							"value": "37.8"
+						},
+						{
+							"key": "newspaper",
+							"value": "69.2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingest_data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/v2/ingest_data?tv=166.8&radio=42&newspaper=3.6&sales=19600",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"v2",
+						"ingest_data"
+					],
+					"query": [
+						{
+							"key": "tv",
+							"value": "166.8"
+						},
+						{
+							"key": "radio",
+							"value": "42"
+						},
+						{
+							"key": "newspaper",
+							"value": "3.6"
+						},
+						{
+							"key": "sales",
+							"value": "19600"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrain",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/v2/retrain",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"v2",
+						"retrain"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

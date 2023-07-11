@@ -1,6 +1,8 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import os
 import pickle
+from sklearn.model_selection import cross_val_score
+import pandas as pd
 import sqlite3
 
 
@@ -30,15 +32,15 @@ def predict():
 
 @app.route('/v2/ingest_data', methods=['POST'])
 def ingest_data():
-    tv = request.args('tv', None)
-    radio = request.args('radio', None)
-    newspaper = request.args('newspaper', None)
-    sales = request.args('sales', None)
+    tv = request.args.get('tv', None)
+    radio = request.args.get('radio', None)
+    newspaper = request.args.get('newspaper', None)
+    sales = request.args.get('sales', None)
 
     connection = sqlite3.connect('data/ingest_data.db')
     cursor = connection.cursor()
     query = f'''
-            INSERT INTO advertising (tv, radio, newspaper, sales)
+            INSERT INTO advertising (tv, radio, newpaper, sales)
             VALUES ({tv}, {radio}, {newspaper}, {sales})
             '''
     result = cursor.execute(query).fetchall()
